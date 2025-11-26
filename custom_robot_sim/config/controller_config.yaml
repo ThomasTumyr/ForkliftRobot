@@ -1,0 +1,44 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    mobile_base_controller:
+      type: forward_command_controller/ForwardCommandController
+
+    robot_arm_controller:
+      type: forward_command_controller/ForwardCommandController
+
+    gripper_controller:
+      type: forward_command_controller/ForwardCommandController
+
+mobile_base_controller:
+  ros__parameters:
+    joints:
+      - front_right_wheel_joint
+      - front_left_wheel_joint
+      - back_right_wheel_joint
+      - back_left_wheel_joint
+
+    interface_name: velocity
+
+robot_arm_controller:
+  ros__parameters:
+    joints:
+      - arm_base_joint
+      - link_1_joint
+      - link_2_joint
+      - link_3_joint
+      - gripper_base_joint
+
+    interface_name: position
+
+gripper_controller:
+  ros__parameters:
+    joints:
+      - gripper_finger_left_joint
+
+    interface_name: position
+
